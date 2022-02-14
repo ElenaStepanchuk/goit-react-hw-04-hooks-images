@@ -34,8 +34,12 @@ const App = () => {
     };
     Photos();
   }, [page, name]);
-
   const handleFormSubmit = (name) => {
+    if (!name) {
+      toast(`Введите имя для поиска фотографий!`, {
+        position: "top-center",
+      });
+    }
     setName(name);
     setPage(1);
     setPhotos([]);
